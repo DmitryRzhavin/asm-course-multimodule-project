@@ -22,29 +22,31 @@ int root_iterations = 0;
 Используется при этом метод хорд
 */
 double root(afunc *f, afunc *g, double a, double b, double eps) {
-  double fa;
-  double fb;
-  double fx;
-  double x;
+    double fa;
+    double fb;
+    double fx;
+    double x;
 
-  root_iterations = 0;
+    root_iterations = 0;
 
-  while (1) {
-    root_iterations++;
+    while (1) {
+        root_iterations++;
 
-    fa = f(a) - g(a);
-    fb = f(b) - g(b);
+        fa = f(a) - g(a);
+        fb = f(b) - g(b);
 
-    x = (a * fb - b * fa) / (fb - fa);
+        x = (a * fb - b * fa) / (fb - fa);
 
-    fx = f(x) - g(x);
+        fx = f(x) - g(x);
 
-    if (fabs(fx) < eps)
-      return x;
+        if (fabs(fx) < eps) {
+            return x;
+        }
 
-    if (fa * fx < 0.0)
-      b = x;
-    else
-      a = x;
-  }
+        if (fa * fx < 0.0) {
+            b = x;
+        } else {
+            a = x;
+        }
+    }
 }
