@@ -21,7 +21,7 @@ int root_iterations = 0;
 
 Используется при этом метод хорд
 */
-double root(afunc *f, afunc *g, double a, double b, double eps) {
+double root_hord(afunc *f, afunc *g, double a, double b, double eps) {
     double fa;
     double fb;
     double fx;

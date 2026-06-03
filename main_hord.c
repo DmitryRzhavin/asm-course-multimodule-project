@@ -98,7 +98,7 @@ int main(int argc, char *argv[]) {
                 return 1;
             }
 
-            double result = root(f, g, a, b, eps);
+            double result = root_hord(f, g, a, b, eps);
 
             printf("%.10f\n", result);
             printf("%.10f\n", fabs(result - exact));
@@ -148,13 +148,13 @@ int main(int argc, char *argv[]) {
     int iterD;
     int iterC;
 
-    double xA = root(f1, f2, 4.0, 6.0, eps_root);
+    double xA = root_hord(f1, f2, 4.0, 6.0, eps_root);
     iterA = root_iterations;
 
-    double xD = root(f1, f3, 1.0, 2.0, eps_root);
+    double xD = root_hord(f1, f3, 1.0, 2.0, eps_root);
     iterD = root_iterations;
 
-    double xC = root(f2, f3, 4.0, 5.0, eps_root);
+    double xC = root_hord(f2, f3, 4.0, 5.0, eps_root);
     iterC = root_iterations;
 
     if (argc > 1) {

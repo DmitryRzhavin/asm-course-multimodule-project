@@ -9,14 +9,25 @@
 /* Тип функции с вещественным аргументом */
 typedef double afunc(double);
 
+/* Исходные функции */
 double f1(double x);
 double f2(double x);
 double f3(double x);
 
+/* Производные */
+double df1(double x);
+double df2(double x);
+double df3(double x);
+
+/* Разности */
 double f12(double x);
 double f13(double x);
 
-double root(afunc *f, afunc *g, double a, double b, double eps);
+/* Метод хорд */
+double root_hord(afunc *f, afunc *g, double a, double b, double eps);
+
+/* Метод Ньютона */
+double root_newton(afunc *f, afunc *g, afunc *df, afunc *dg, double a, double b, double eps);
 
 double integral(afunc *f, double a, double b, double eps);
 

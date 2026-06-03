@@ -11,6 +11,8 @@ three       dq 3.0
 
 two_half    dq 2.5
 nine_half   dq 9.5
+spec_const dq -1.5
+minus_five dq -5.0
 
 five        dq 5.0
 
@@ -19,6 +21,9 @@ section .text
 global f1
 global f2
 global f3
+global df1
+global df2
+global df3
 
 ; double f1(double x)
 f1:
@@ -70,4 +75,51 @@ f3:
 
     mov     esp, ebp
     pop     ebp
+    ret
+
+; double df1(double x)
+df1:
+    push ebp
+    mov ebp, esp
+
+    fld qword [ebp+8]
+    fld1
+    faddp
+
+    fld st0
+    fmulp
+
+    fld qword [spec_const]
+    fdivrp
+
+    mov esp, ebp
+    pop ebp
+    ret
+
+; double df2(double x)
+df2:
+    push ebp
+    mov ebp, esp
+
+    fld qword [two_half]
+
+    mov esp, ebp
+    pop ebp
+    ret
+
+; double df3(double x)
+df3:
+    push ebp
+    mov ebp, esp
+
+    fld qword [ebp+8]
+    fld st0
+    fmulp
+
+    fld qword [minus_five]
+
+    fdivrp st1, st0
+
+    mov esp, ebp
+    pop ebp
     ret
