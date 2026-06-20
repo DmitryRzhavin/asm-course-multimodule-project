@@ -1,4 +1,8 @@
+# Скомпилированный бинарник
 integral
+
+# Объектные файлы
 *.o
+
 # local formatting config
 .clang-format

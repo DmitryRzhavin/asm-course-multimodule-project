@@ -13,11 +13,15 @@ typedef double afunc(double);
 double f1(double x);
 double f2(double x);
 double f3(double x);
+double f4(double x);
+double f5(double x);
 
 /* Производные */
 double df1(double x);
 double df2(double x);
 double df3(double x);
+double df4(double x);
+double df5(double x);
 
 /* Разности */
 double f12(double x);
